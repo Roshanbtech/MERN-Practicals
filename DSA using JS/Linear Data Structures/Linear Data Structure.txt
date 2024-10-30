@@ -1,0 +1,31 @@
+
+* Linear Data Structures => store elements in a sequential order, where each element has a unique predecessor and successor
+
+it's generally simpler and allows easier access to elements.
+
+1. Arrays =>
+    * Fixed-size, contiguous block of memory.
+    * Accessed by inices.
+
+2. Strings =>
+    * Sequential Access, contiguous memory location.
+    * Index based access.
+    * Fixed order.
+
+3. Linked Lists =>
+    * Sequence of nodes, where each nodes points to next node.
+    * Variants inlcudes Singly, Doubly and Circular linked lists.
+
+4. Stacks =>
+    * Follows Last In First Out (LIFO) principle.
+    * Allows operations at one end only, typically the top.
+    * eg: CallStack in JS along with the execution context.
+
+5. Queues =>
+    * Follows First In First Out (FIFO) principle.
+    * operations allowed at both ends (insertion at rear, deletion at front).   
+
+6. Hash Tables(with linear probing) =>
+    * stores datas in key-value pairs.
+    * uses linear probing as a collision resolution technique, making the structure follow linear-like access patterns in specific scenarios.
+

@@ -1,0 +1,40 @@
+
+* Non-Linear Data Structures =>
+
+Non-linear data structures do not store elements in a sequential order. Instead, elements are organized in a hierarchical or interconnected manner, allowing for more complex relationships between them.
+
+1. Trees =>
+    - A hierarchical structure consisting of nodes connected by edges.  
+    - Each tree has a root node and can have multiple levels of child nodes.  
+    - Variants include:  
+        - **Binary Tree**: Each node has at most two children (left and right).  
+        - **Binary Search Tree (BST)**: A binary tree where left children are less than the parent, and right children are greater.  
+        - **AVL Tree**: A self-balancing BST where the difference in heights of left and right subtrees is at most one.  
+        - **Red-Black Tree**: A balanced BST with properties that maintain balance during insertions and deletions.  
+
+2. Graphs =>
+    - A collection of nodes (vertices) connected by edges, representing relationships between pairs of objects.  
+    - Types of graphs include:  
+        - **Directed Graph**: Edges have a direction from one vertex to another.  
+        - **Undirected Graph**: Edges have no direction, representing a two-way relationship.  
+        - **Weighted Graph**: Edges carry weights, indicating the cost or distance between vertices.  
+        - **Unweighted Graph**: All edges are treated equally without any weights.  
+
+3. Heaps =>
+    - A special tree-based structure that satisfies the heap property:  
+        - **Max Heap**: The value of each parent node is greater than or equal to the values of its children.  
+        - **Min Heap**: The value of each parent node is less than or equal to the values of its children.  
+    - Heaps are commonly used in priority queues and heap sort algorithms.  
+
+4. Tries (Prefix Trees) =>
+    - A tree-like data structure that stores a dynamic set of strings, where each node represents a character of a string.  
+    - Useful for tasks like autocomplete and spell checking.  
+
+5. Hash Tables (with chaining) =>
+    - Stores data in key-value pairs, similar to linear hash tables, but uses chaining to handle collisions.  
+    - Each index in the hash table can contain multiple entries in the form of a linked list or other structure, allowing for more efficient handling of collisions.  
+
+6.  Sets =>
+    - A collection of distinct objects, typically implemented using hash tables or trees.  
+    - Operations like union, intersection, and difference can be efficiently performed.  
+
