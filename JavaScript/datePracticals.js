@@ -25,5 +25,3 @@ function dayMonName(str){
    return date.toLocaleString('en-IN',{weekday:'long',month: 'long'})
 }
 console.log(dayMonName('2022-12-12'))
-
-//

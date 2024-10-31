@@ -15,3 +15,13 @@ function removeLastVegetables(vegetables) {
 }
 console.log(removeLastVegetables(vegetables));
 
+//remove key corresponding to smallest number in object
+function remSmallKey(obj){
+  let smallestKey = Object.keys(obj).reduce((a,b)=> (obj[a]<obj[b]?a:b));
+  delete obj[smallestKey]
+  return obj
+}
+console.log(remSmallKey({ a: 1, b: 2, c: 3, d: 4 }));
+
+
+
