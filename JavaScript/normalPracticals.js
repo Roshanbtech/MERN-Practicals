@@ -64,20 +64,6 @@ const add = (a, b, c) => {
   }
   mainFn(callFn);
 
-  //________________________Counter function creation from 1 to 10
-  const counter = () =>{
-    let count = 0;
-    let intervalId = setInterval(()=>{
-        count++;
-        console.log(count);
-        if(count>=10){
-            clearInterval(intervalId);
-            console.log('counter stopped');
-        }
-    },1000)
-  }
-  counter()
-
   //_________________________Generator function: function that can be paused and resumed at any time with the help of yield keyword 
   // applications of generator function: 1. to create iterators, 2. to create asynchronous iterators
   function* evenNums(){
