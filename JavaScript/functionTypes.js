@@ -171,7 +171,7 @@ function thunkify(fn) {
     };
 }
 
-const add = (a, b) => a + b;
-const thunk = thunkify(add)(2, 3);
+const ad = (a, b) => a + b;
+const thunk = thunkify(ad)(2, 3);
 console.log(thunk()); // Output: 5
 
