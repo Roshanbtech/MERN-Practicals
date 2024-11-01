@@ -64,3 +64,13 @@ fs.link('output.txt','input.txt',(err)=>{
     if(err) throw err;
     console.log('File linked asynchronously');
 })
+
+//_________append file synchronously________
+fs.appendFileSync('input.txt','Tinsu');
+console.log('File appended synchronously');
+
+//_________append file asynchronously________
+fs.appendFile('input.txt','Roshan',(err)=>{
+    if(err) throw err;
+    console.log('File appended asynchronously');
+})
