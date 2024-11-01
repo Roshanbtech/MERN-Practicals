@@ -164,3 +164,11 @@ getPerson(19, "Chennai");
 // Output: "My name is Robbin, I am 20 years old, and I live in Chennai."
 
 // Note: The `call`, `apply`, and `bind` methods are often used together to create a more flexible and dynamic way to invoke functions with different contexts.
+
+
+//___________________________SUM OF INFINITE ARGUMENTS_________________________________
+function sumOfinf(...args){
+  console.log(args.reduce((ac,cv)=>ac+cv,0))
+}
+sumOfinf(1,2,3,4,5,6,7,8,9,10)
+
