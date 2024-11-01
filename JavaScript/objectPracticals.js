@@ -105,3 +105,24 @@ const ee = e.reduce((arr,obj)=> arr.concat(Object.values(obj)),[])
 console.log(ee)
 const ff = ee.reduce((ac,cv)=>ac+cv,0)
 console.log(ff)
+
+//------ result should be in the format of { a, b, sum: a + b } in an array
+const ba = [1, 4, 0, 0, 12, 4, 23, 2];
+let result = [];
+for(let i=0;i<ba.length;i+=2){
+  let a = ba[i];
+  let b = ba[i+1] !== undefined ? ba[i+1] : 0;
+  result.push({a,b,sum:a+b})
+}
+console.log(result)
+
+//_________summing even values in object using reduce
+const ob = {a:1,b:2,c:3,d:4}
+const evenSum = Object.values(ob).reduce((a,b)=>b%2===0?a+b:a,0)
+console.log(evenSum,'even sum')
+//______summing odd values in object
+let s = 0;
+for(let key in ob){
+  if(ob[key]%2!==0) s += ob[key]
+}
+console.log(s,'odd sum')

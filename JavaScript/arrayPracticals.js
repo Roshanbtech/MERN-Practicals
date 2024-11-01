@@ -96,3 +96,40 @@ console.log(anagram('listen'))
 const nam = [{a:'tiger',b:'lion'},{c:'cat',d:'dog'}]
 const flatten = nam.map(obj=>Object.values(obj)).flat()
 console.log(flatten)
+
+//________calculate cumulative sum with pairs in the array
+const a = [[3,43],[4,4],[3,3]];
+let cumSum = 100;
+
+a.forEach(pair => {
+  const sum = pair[0] + pair[1];
+  cumSum -= sum;
+  console.log(cumSum);
+});
+
+//____________ count duplicates in an array
+function dupCount(ar){
+  let count = 0;
+    for(let i=0;i<ar.length;i++){
+      for(let j=i+1;j<ar.length;j++){
+        if(ar[i]===ar[j]){
+          count++
+          break;
+        }
+    }
+}
+return `duplicate count of array is ${count}`
+}
+console.log(dupCount([1,2,3,4,5,1,1,5,5]))
+
+//_________summing elements in nested arrays in array
+const ba = [{a: [43, 34, 433, 3]}, {a: [4, -34, 43, 3]}, {a: [4, 34, 43, 3]}, {a: [34, 334, 43, 3]}];
+ba.forEach(obj=>{
+  const sum = obj.a.reduce((a,b)=>a+b,0);
+  console.log(sum)
+})
+
+//________summing properties in arrays of objects
+const ab = [{af:3},{af:4},{af:5},{af:6}];
+const totalSum = ab.reduce((a,b)=>a+b.af,0);
+console.log(totalSum)

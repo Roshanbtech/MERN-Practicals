@@ -638,3 +638,185 @@ console.log(duplicate([1,2,3,1,3,5,6,8,8]));
 // ]
 // console.table(players.sort((a,b)=>a.age-b.age))
 
+//find anagram in list
+
+const words = ['listen','silent','enlist','rat','tar','god','dog'];
+
+const anagram = (word) => {
+    const letters = word.split('').sort().join('');
+    const anagrams = [];
+    for (let i = 0; i < words.length; i++) {
+        if (letters === words[i].split('').sort().join('')) {
+            anagrams.push(words[i]);
+        }   
+    }
+    return anagrams;
+}
+
+console.log(anagram('listen'));
+
+
+
+//removal of zeros from the array and replace it in the first of the array
+let arr = [1,0,20,0,0,3,0,40,0];
+let res= []
+let nonZero = []
+
+for(let i = 0;i<arr.length;i++){
+    if(arr[i]===0){
+        res.push(arr[i])
+    } else{
+        nonZero.push(arr[i])
+    }
+    if(arr[i]===0){
+        arr.splice(i,1);
+        arr.unshift(0)
+        arr.sort((a,b)=>a-b)
+    }
+}
+console.log(arr)
+console.log(res.concat(nonZero))
+console.log([...res,...nonZero])
+
+// const ba = [1, 4, 0, 0, 12, 4, 23, 2];
+// let result = [];
+
+// for(let i = 0; i < ba.length; i += 2) {
+//     let a = ba[i];
+//     let b = ba[i + 1] !== undefined ? ba[i + 1] : 0;
+//     result.push({ a, b, sum: a + b });
+// }
+
+// console.log(result);
+
+
+// const a = [[3,43],[4,4],[3,3]];
+// let cumSum = 100;
+
+// a.forEach(pair =>{
+//     const sum = pair[0] + pair[1];
+//     cumSum -= sum;
+//     console.log(cumSum)
+// })
+
+const ba = [{a:[43,34,433,3]},{a:[4,-34,43,3]},{a:[4,34,43,3]},{a:[34,334,43,3]}]
+
+ba.forEach(item=>{
+    const sum = item.a.reduce((a,b)=>a+b,0)
+    console.log(`Sum of ${item.a}: ${sum}`);
+})
+
+const ab = [{af:3},{af:3},{af:3},{af:3},{af:3}]
+const totalSum = ab.reduce((a,b)=>a+b.af,0)
+console.log(totalSum)
+
+//second smallest 
+// const arr = [3,1,4,1,5,9,2,0];
+// function secSmall(arr){
+//     let first = Infinity, second = Infinity;
+//     for(let num of arr){
+//         if(num < first){
+//             second = first;
+//             first = num;
+//         }else if(num < second && num !== first){
+//             second = num;
+//         }
+//     }
+//     return [first,second]
+// }
+// console.log(secSmall(arr))
+
+//second largest
+// const arr = [3,1,4,1,5,9,2,0];
+// function secLarge(arr){
+//     let f = -Infinity, s = -Infinity;
+//     for(let num of arr){
+//         if(num > f){
+//             s = f;
+//             f = num;
+//         } else if(num > s && num !== f){
+//             s = num;
+//         }
+//     }
+//     return [f,s]
+// }
+// console.log(secLarge(arr))
+
+// function palindrome(str){
+//     return str === str.split('').reverse().join('')
+// }
+// console.log(palindrome('madam'))
+
+function pal(str){
+    let left = 0, right = str.length-1;
+    while(left<right){
+        if(str[left]!== str[right]){
+            return false;
+        }
+        left++;
+        right--
+    }
+    return true
+}
+console.log(pal('racecar'))
+
+let count = 0;
+const interval = setInterval(()=>{
+    count++;
+    console.log(count)
+    if(count === 10) clearInterval(interval)
+},1000)
+
+// const obj = {a:1,b:2,c:4,d:7,e:6};
+// const sum = Object.values(obj).flat().reduce((a,b)=>(b%2===0?a+b:a),0);
+// console.log(sum);
+
+// let s = 0;
+// for(let key in obj){
+//     if(obj[key]%2===0) s += obj[key]
+// }
+// console.log(s)
+
+const currentDate = new Date().toLocaleDateString();
+console.log(currentDate)
+
+const og = [1,2,3,2,4,3,5,5,8,9,9];
+const ur = [...new Set(og)]
+console.log(ur)
+
+let c = 0
+for(let i=0;i<og.length;i++){
+    for(let j=i+1;j<og.length;j++){
+        if(og[i]===og[j]){
+            c++
+            break;
+        }
+    }
+}
+console.log(c)
+
+function* evenNumbers(){
+    let num = 0;
+    for(let i=0;i<=10;i++){
+        yield num;
+        num= num+2;
+    }
+}
+const gen = evenNumbers()
+for(let val of gen){
+    console.log(val)
+}
+
+function counter(){
+    let count = 0;
+    let intervalId = setInterval(()=>{
+        count++
+        console.log(count)
+        if(count>=10){
+            clearInterval(intervalId)
+            console.log('counter stopped')
+        }
+    },1000)
+}
+counter()
+

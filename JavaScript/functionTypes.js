@@ -175,3 +175,16 @@ const ad = (a, b) => a + b;
 const thunk = thunkify(ad)(2, 3);
 console.log(thunk()); // Output: 5
 
+//19. First class function => function that can be assigned to a variable, passed as an argument, returned from another function, etc.
+const add = (a, b) => a + b;
+const subtract = (a, b) => a - b;
+const multiply = (a, b) => a * b;
+const divide = (a, b) => a / b;
+
+const functions = [add, subtract, multiply, divide];
+
+for (let i = 0; i < functions.length; i++) {
+    console.log(functions[i](2, 3));
+}
+
+
