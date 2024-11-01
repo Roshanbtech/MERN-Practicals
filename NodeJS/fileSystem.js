@@ -30,3 +30,37 @@ fs.unlink('output.txt',(err)=>{
     if(err) throw err;
     console.log('File deleted asynchronously');
 })
+
+//_______create directory synchronously______
+fs.mkdirSync('stuff');
+console.log('Directory created synchronously');
+
+//_______create directory asynchronously______
+fs.mkdir('stuff',(err)=>{
+    if(err) throw err;
+    console.log('Directory created asynchronously');
+})
+
+//________ status of file system_______
+fs.stat('input.txt',(err,stats)=>[
+    console.log(stats.size)
+])
+
+// _________rename file synchronously_______
+fs.renameSync('input.txt','output.txt');
+console.log('File renamed synchronously');
+
+// _________rename file asynchronously_______
+fs.rename('input.txt','output.txt',(err)=>{
+    if(err) throw err;
+    console.log('File renamed asynchronously');
+})
+
+// _______link file synchronously________
+fs.linkSync('output.txt','input.txt');
+
+// _______link file asynchronously________
+fs.link('output.txt','input.txt',(err)=>{
+    if(err) throw err;
+    console.log('File linked asynchronously');
+})
