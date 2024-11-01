@@ -1,6 +1,9 @@
 # Node modules
 node_modules/
 
+# Build output
+dist/
+
 # Logs
 *.log
 
@@ -10,3 +13,12 @@ node_modules/
 # OS-specific files
 .DS_Store       # macOS
 Thumbs.db       # Windows
+
+# Vite cache
+.vite/
+
+# Tailwind CSS generated files (if any)
+tailwind.config.js
+
+# Coverage reports (if using a testing framework)
+coverage/
