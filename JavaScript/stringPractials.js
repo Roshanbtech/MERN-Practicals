@@ -27,3 +27,29 @@ function longWord(str) {
   }
   console.log(longWord("I am Roshan"));
 
+//_________________________ snake case to pascal case
+function snakeCaseToPascalCase(str){
+    let result = '';
+    str.split('_').forEach(word=>{
+        result+= word.charAt(0).toUpperCase() + word.slice(1)
+    })
+    return result
+}
+console.log(snakeCaseToPascalCase('i_am_roshan_reji'))
+
+//_________________________ check whether is a palindrome using pointers
+function isPalindrome(str){
+   let left = 0;
+   let right = str.length -1;
+   while(left<right){
+    if(str[left] !== str[right]){
+        return false;
+    }
+    left++;
+    right--;
+   }
+   return true
+}
+console.log(isPalindrome("racecar"))
+
+

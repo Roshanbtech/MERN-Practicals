@@ -91,4 +91,63 @@ const add = (a, b, c) => {
       console.log(val)
   }
 
+  //_________________________Check whether a number is a fraction or not
+  function isFraction(num){
+    num%1 === 0 ? console.log(`${num} is not a fraction`) : console.log(`${num} is a fraction`);
+  }
+  isFraction(5);
+  isFraction(5.5);
+
+  //_________________________Check whether a number is prime or not
+  function isPrime(num){
+     for(let i=2;i<num;i++){
+      if(num%i === 0){
+        console.log(`${num} is not a prime number`);
+        break;
+      }
+      if(i===num-1){
+        console.log(`${num} is a prime number`);
+      }
+     }
+  }
   
+  isPrime(5);
+  isPrime(7);
+  isPrime(12);
+
+  // ----------------------------- call, apply, and bind methods -----------------------------------
+// Purpose: These methods are used to pass an owner object as an argument to a function,
+//          or to set the value of the `this` keyword in a function. This concept is known 
+//          as "function borrowing."
+
+const person = {
+  name: "Roshan",
+  getDetails: function(age, city) {
+      console.log(`My name is ${this.name}, I am ${age} years old, and I live in ${city}.`);
+  }
+};
+
+// 1. call() Method:
+//    - Invokes the function immediately.
+//    - Sets `this` to the specified owner object.
+//    - Additional arguments are passed individually (not as an array).
+
+person.getDetails.call({ name: 'Robbin' }, 20, 'Chennai');
+// Output: "My name is Robbin, I am 20 years old, and I live in Chennai."
+
+// 2. apply() Method:
+//    - Invokes the function immediately.
+//    - Sets `this` to the specified owner object.
+//    - Additional arguments are passed as an array.
+
+person.getDetails.apply({ name: 'Seena Reji' }, [53, 'Chennai']);
+// Output: "My name is Robbin, I am 20 years old, and I live in Chennai."
+
+// 3. bind() Method:
+//    - Does not immediately invoke the function.
+//    - Returns a new function with `this` bound to the specified owner object.
+//    - Additional arguments can be passed and will be preserved when the new function is invoked.
+
+const getPerson = person.getDetails.bind({ name: 'Rosina' });
+getPerson(19, 'Chennai');
+// Output: "My name is Robbin, I am 20 years old, and I live in Chennai."
