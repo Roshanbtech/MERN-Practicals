@@ -11,6 +11,9 @@ class SinglyLinkedList{
     constructor(){
         this.head = null;
     }
+    isEmpty(){
+        return this.head === null;
+    }
 
     append(data){
         const newNode = new Node(data);
@@ -111,6 +114,15 @@ class SinglyLinkedList{
             return 'data not found';
         }
     }
+    findMid(){
+        let fast = this.head;
+        let slow = this.head;
+        while(fast && fast.next){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow.data;
+    }
 }
 
 const list = new SinglyLinkedList();
@@ -132,3 +144,5 @@ list.reverse();
 list.printList();
 
 console.log(list.deleteMiddle(20));
+
+console.log(list.findMid());

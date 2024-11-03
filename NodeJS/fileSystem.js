@@ -74,3 +74,17 @@ fs.appendFile('input.txt','Roshan',(err)=>{
     if(err) throw err;
     console.log('File appended asynchronously');
 })
+
+//________readable and writable streams________
+const fs = require('fs');
+const readableStream = fs.createReadStream('input.txt');
+const writableStream = fs.createWriteStream('output.txt');
+// Pipe the readable stream to the writable stream
+readableStream.pipe(writableStream);
+//or 
+readableStream.on('data',(chunk)=>{
+    writableStream.write(chunk);
+})
+readableStream.on('end',()=>{
+    writableStream.end();
+})
