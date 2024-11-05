@@ -88,3 +88,10 @@ readableStream.on('data',(chunk)=>{
 readableStream.on('end',()=>{
     writableStream.end();
 })
+
+//write current date and time in a file
+const date = new Date().toLocaleString('en-IN');
+fs.writeFile('date.txt', date, (err) => {
+    if (err) throw err;
+    console.log('Date and time written to file successfully.');
+});

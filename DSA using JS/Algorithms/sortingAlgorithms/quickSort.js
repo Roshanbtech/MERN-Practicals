@@ -18,3 +18,13 @@ const quickSort = (arr) => {
     return [...quickSort(left),pivot,...quickSort(right)];
 }
 console.log(quickSort([5,4,3,2,1,2,3,4,5]))
+
+function findMid(arr){
+    let slow = 0;let fast = 1;
+    while(fast < arr.length && fast+1 < arr.length){
+        slow +=1
+        fast +=2
+    }
+    return arr[slow]
+}
+console.log(findMid([5,4,3,2,1,2,3,4,5]))

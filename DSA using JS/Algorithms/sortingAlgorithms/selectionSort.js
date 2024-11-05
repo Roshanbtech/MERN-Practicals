@@ -21,3 +21,8 @@ function selectionSort(arr) {
 
 }
 console.log(selectionSort(arr))
+
+function findMid(arr){
+    return arr[Math.floor(arr.length/2)]
+}
+console.log(findMid(arr))

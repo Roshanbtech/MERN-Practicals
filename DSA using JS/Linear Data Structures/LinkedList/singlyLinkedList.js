@@ -93,12 +93,12 @@ class SinglyLinkedList{
     this.head = prev;
     }
  
-    deleteMiddle(data){
-        if(this.head === null) return 'List is empty';
-        if(this.head.data === data){
-            this.head = this.head.next;
-            return 'head node deleted';
-        }
+    deleteMiddle(){
+        if (this.head === null) return 'empty';
+        if (this.head.next === null) {  // Only one node in the list
+            this.head = null;
+            return 'only node deleted';
+        }    
         let slow = this.head;
         let fast = this.head;
         let prev = null;    
@@ -143,6 +143,7 @@ list.printList();
 list.reverse();
 list.printList();
 
-console.log(list.deleteMiddle(20));
+console.log(list.deleteMiddle());
+list.printList();
 
 console.log(list.findMid());
