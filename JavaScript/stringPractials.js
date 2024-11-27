@@ -52,4 +52,157 @@ function isPalindrome(str){
 }
 console.log(isPalindrome("racecar"))
 
+//_________________________ reversal of a string like each words reversed
+function reverseWords(str){ 
+    return str.split(" ").map(word => word.split("").reverse().join("")).join(" ");
+}
+console.log(reverseWords("I am Roshan"));
+console.log(reverseWords("Hey Tinsu how are you"));
+
+
+let string = "hihellohihellohihihi"
+function count(str){
+    let count = 0
+    let string = str.split("hi")
+    for(let word of string){
+        if(word.length>2){
+            count++
+        }
+    }
+    return count
+}
+console.log(count(string))
+
+
+let str = 'abccdeefggg';
+
+function repElem(str){
+    let obj={};
+    let string = '';
+    for(let char of str){
+        if(obj[char]){
+            if(!string.includes(char)){
+                string+=char
+            }
+        }else{
+            obj[char] = true
+        }
+    }
+    return string
+}
+console.log(repElem(str))
+
+function ObjToString(input){
+    result=''
+    for(const key in input){
+       result+=`${key}=${input[key]} & `
+    }
+    
+    return result.trim().slice(0,-1);
+}
+
+const input = {
+   name: 'joe',
+   email: 'joe@gmail.com'
+};
+
+
+
+console.log(ObjToString(input));
+
+
+// Input: "I love JavaScript"
+// Output: "JavaScript"
+
+
+function l(s){
+    let curr = '', long = '';
+    for(let i=0;i<s.length;i++){
+        if(s[i]===' '){
+            if(curr.length>long.length){
+                long = curr;
+            }
+            curr = ''
+        }else{
+            curr += s[i]
+        }
+    }
+    if(curr.length>long.length){
+        long = curr
+    }
+    return long
+}
+console.log(l('I love car Javascript'))
+
+// Input: "swiss"
+// Output: "w"
+
+function firstUnique(str){
+    for(let i = 0;i<str.length;i++){
+        let isUnique = true;
+        for(let j=i+1;j<str.length;j++){
+            if(str[i]===str[j]){
+                isUnique = false;
+                break;
+            }
+        }
+        if(isUnique){
+            return str[i]
+        }
+    }
+    return null
+ }
+ console.log(firstUnique('swiss'))
+
+ // Input: "camelCase"
+// Output: "camel_case"
+
+
+function conv(str) {
+    return str
+        .split('') // Split the string into characters
+        .map(char => 
+            char === char.toUpperCase() // Check if the character is uppercase
+                ? '_' + char.toLowerCase() // Convert to lowercase and prepend with an underscore
+                : char
+        )
+        .join(''); // Join the characters back into a string
+}
+
+console.log(conv('camelCase'));  // Output: "camel_case"
+
+// Input: "The quick brown fox jumps over the lazy dog"
+// Output: true
+
+function panagram(str){
+    let string = str.split(" ").join("").toLowerCase().replace(/[^a-z]/g, "");
+    let setS = new Set()
+    for(let char of string){
+      setS.add(char)
+    }
+    return setS.size === 26
+}
+console.log(panagram("The quick brown fox jumps 123 over the lazy dog"))
+
+// Input: "hello world"
+// Output: "Hello World"
+
+function Captialfirst(str){
+    return str.split(' ').map((x)=>x.charAt(0).toUpperCase()+x.slice(1)).join(' ')
+  }
+  console.log(Captialfirst("hello world"))
+
+  //input:'abc'
+//output:['a','b','c','ab','bc','abc']
+function subStr(str){
+    let sub = [];
+    for(let i = 0;i<str.length;i++){
+        for(let j=i+1;j<=str.length;j++){
+            sub.push(str.slice(i,j))
+        }
+    }
+    return sub
+}
+console.log(subStr('abc'))
+
 

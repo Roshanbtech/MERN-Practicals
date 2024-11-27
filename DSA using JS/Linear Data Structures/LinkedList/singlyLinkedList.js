@@ -123,6 +123,23 @@ class SinglyLinkedList{
         }
         return slow.data;
     }
+
+    //remove all odd nodes from the list
+    removeOddNodes(){
+        while(this.head && this.head.data%2!==0){
+            this.head = this.head.next;
+        }
+        let current = this.head;;
+        let prev = null;
+        while(current){
+            if(current.data%2!==0){
+                prev.next = current.next;
+            } else{
+                prev = current;
+            }
+            current = current.next;
+        }
+    }
 }
 
 const list = new SinglyLinkedList();
@@ -146,4 +163,11 @@ list.printList();
 console.log(list.deleteMiddle());
 list.printList();
 
+list.append(23);
+list.append(24);
+list.append(25);
+
 console.log(list.findMid());
+
+list.removeOddNodes();
+list.printList();

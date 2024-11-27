@@ -142,7 +142,7 @@ fetchUser().then(user => {
     console.log(user);
 });
 
-//16. Recursive function => function that calls itself
+//16. Recursive function => function that calls itself until a certain condition is met or a base case is reached and over recursion causes stack overflow.
 function factorial(n) {
     if (n === 1) {
         return 1;

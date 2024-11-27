@@ -1,0 +1,17 @@
+//Graphs =>  A nonlinear datastructure in which elements are called nodes or vertices and are connected by edges. Its used to create connections, paths etc
+
+//Types of Graphs =>
+//1. Undirected Graphs => edges have no direction from one vertex to another
+//2. Directed Graphs => edges have a direction from one vertex to another
+//3. Weighted Graphs => edges carry weights indicating the cost or distance between vertices
+//4. Unweighted Graphs => all edges are treated equally without any weights
+//5. Sparse Graphs => a graph with a small number of edges
+//6. Dense Graphs => a graph with a large number of edges
+//7. Tree Graphs => a graph that is connected and acyclic 
+//8. Cycle Graphs => a graph that has at least one cycle
+//9. Acyclic Graphs => a graph that has no cycles
+
+
+// Adjacency matrix => a 2d array where matrix[i][j] = 1 indicates an edge between vertex i and vertex j.
+// Adjaceney list => an array of lists where each list contains neighbours of a vertex.
+

@@ -45,3 +45,11 @@ function fibonacci(n){
 }
 console.log(fibonacci(5))
 
+//sum of number
+let arr = [1,2,3,4,5,6,7];
+
+function sum(a){
+    if(a.length<=0) return 0
+    return a[0] + sum(a.slice(1))
+}
+console.log(sum(arr))

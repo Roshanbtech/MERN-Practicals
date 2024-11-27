@@ -133,3 +133,90 @@ ba.forEach(obj=>{
 const ab = [{af:3},{af:4},{af:5},{af:6}];
 const totalSum = ab.reduce((a,b)=>a+b.af,0);
 console.log(totalSum)
+
+
+
+var groupAnagrams = function(strs) {
+  let map = new Map();
+  for(let str of strs){
+      let sortedStr = str.split('').sort().join('');
+      if(!map.has(sortedStr)){
+          map.set(sortedStr,[]);
+      }
+      map.get(sortedStr).push(str);
+  }
+   return Array.from(map.values())
+
+};
+
+console.log(groupAnagrams(["eat","tea","tan","ate","nat","bat"]))
+
+//find the number of occurances 
+
+// const arr = [1,1,2,2,3,4,5,6,7,7,8,9];
+
+// function occur(arr){
+//     let obj = {};
+//     for(let item of arr){
+//         if(obj[item]){
+//             obj[item]++
+//         }else{
+//             obj[item] = 1
+//         }
+//     }
+//     return obj
+// }
+// console.log(occur(arr))
+
+// const arr = [1, 1, 1, 2, 2, 3, 4, 5, 6, 7, 7, 8, 9];
+
+// function occur(arr) {
+//     let obj = {};
+    
+//     // Count occurrences of each item
+//     for (let item of arr) {
+//         obj[item] = (obj[item] || 0) + 1;
+//     }
+
+//     let maxKey = null;
+//     let maxTimes = 0;
+//     let minKey = null;
+//     let minTimes = Infinity; // Set to Infinity to easily find the minimum
+
+//     // Iterate over the object to find the max and min occurrences
+//     for (let key in obj) {
+//         if (obj[key] > maxTimes) {
+//             maxKey = key;
+//             maxTimes = obj[key];
+//         }
+        
+//         if (obj[key] < minTimes) {
+//             minKey = key;
+//             minTimes = obj[key];
+//         }
+//     }
+
+//     return {
+//         maxKey: maxKey,
+//         maxTime: maxTimes,
+//         minKey: minKey,
+//         minTime: minTimes
+//     };
+// }
+
+// console.log(occur(arr));
+
+
+//  [123,432,763]
+// [367,234,321]
+
+function rev(arr){
+  let ne =  arr.reverse()
+  const n = [];
+  for(let w of ne){
+     let word =  parseInt( w.toString().split('').reverse().join(''));
+     n.push(word)
+  }
+  return n
+}
+console.log(rev([123,432,763]))

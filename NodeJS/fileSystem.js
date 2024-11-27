@@ -95,3 +95,36 @@ fs.writeFile('date.txt', date, (err) => {
     if (err) throw err;
     console.log('Date and time written to file successfully.');
 });
+
+//just another add on
+
+const fs = require('fs');
+
+const p = new Promise((res, rej) => {
+    setTimeout(() => {
+        let skills = ['HTML', 'REACT', 'CSS', 'MONGO', 'NODE'];
+        if (skills.includes('NODE')) {
+            res('Full Stack Developer');
+        } else {
+            rej('Skill not found');
+        }
+    }, 3000);
+});
+
+p.then((dev) => {
+    console.log(dev); // Log the resolved value to the console
+    // Write to a file when resolved
+    fs.writeFile('developer.txt', dev, (err) => {
+        if (err) {
+            console.error('Error writing to file:', err);
+        } else {
+            console.log('Content written to developer.txt');
+        }
+    });
+})
+.catch((err) => {
+    // Log the error when rejected
+    console.error('Promise rejected:', err);
+});
+
+
