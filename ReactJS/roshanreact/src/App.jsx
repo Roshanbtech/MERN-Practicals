@@ -3,6 +3,9 @@ import React, { useEffect , useState} from 'react';
 import Navbar from './navbar';
 import SearchBar from './searchBar';
 import CounterButton from './counterButton';
+import LifeCycle from './lifecycleinfunc';
+import ExpensiveCalc from './try';
+import HigherOrderComponent from './higherOrderComp';
 
 const App = () => {
    const [count, setCount] = useState(0);
@@ -21,6 +24,9 @@ const App = () => {
         <h1 className="text-3xl font-bold mb-4">Timer: {count} seconds</h1>
         <SearchBar count = {count} />
         <CounterButton />
+        <LifeCycle />
+        <ExpensiveCalc />
+        <HigherOrderComponent />
       </div>
     </div>
   );

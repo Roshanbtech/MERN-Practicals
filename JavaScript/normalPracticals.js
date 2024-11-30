@@ -172,3 +172,36 @@ function sumOfinf(...args){
 }
 sumOfinf(1,2,3,4,5,6,7,8,9,10)
 
+// ___________________________CALL,APPLY,BIND_________________________________
+// const person = {
+//   name:'Roshan',
+//   greet:function(age){
+//       console.log(`hi,${this.name} of age ${age}`)
+//   }
+// }
+// person.greet.call({name:'Robbin'},20)
+// person.greet.apply({name:'Rosina'},[22])
+// const greetb = person.greet.bind({name:'bob'})
+// greetb(40)
+
+//___________Proxy Object___________
+const target = {
+  name: "Roshan",
+}
+const handler = {
+  get: (obj, prop) => prop in obj ? obj[prop] : `Property ${prop} does not exist`,
+  set: (obj, prop, value) => {
+    if (prop === "name") {
+      obj[prop] = value;
+    } else {
+      throw new Error(`Property ${prop} does not exist`);
+    }
+  },
+}
+
+const proxy = new Proxy(target, handler);
+
+console.log(proxy.name); // "Roshan"
+console.log(proxy.age); // "Property age does not exist"
+proxy.name = "Robbin";
+console.log(proxy.name); // "Robbin"

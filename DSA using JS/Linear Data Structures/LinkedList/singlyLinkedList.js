@@ -140,6 +140,21 @@ class SinglyLinkedList{
             current = current.next;
         }
     }
+
+    removeDuplicates(){
+        let current = this.head;
+        while(current){
+            let runner = current;
+            while(runner.next){
+                if(runner.next.data === current.data){
+                    runner.next = runner.next.next;
+                } else{
+                    runner = runner.next;
+                }
+            }
+            current = current.next;
+        }
+    }
 }
 
 const list = new SinglyLinkedList();
@@ -166,8 +181,12 @@ list.printList();
 list.append(23);
 list.append(24);
 list.append(25);
-
+list.append(25);
+list.append(25);
+list.append(28);
 console.log(list.findMid());
 
 list.removeOddNodes();
+list.printList();
+list.removeDuplicates();
 list.printList();
