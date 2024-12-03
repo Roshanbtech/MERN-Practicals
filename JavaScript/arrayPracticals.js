@@ -220,3 +220,28 @@ function rev(arr){
   return n
 }
 console.log(rev([123,432,763]))
+
+
+// const arr = [[1,2,3,8],[33,44,55,1,2],[2,1,6,8]];
+
+// function remDup(arr){
+//             let obj = {};
+
+//     for(let nums of arr){
+//         for(let num of nums){
+//             if(obj[num]){
+//                 obj[num]++
+//             }else{
+//                 obj[num]=1
+//             }
+//         }
+//     }
+//     let uni = [];
+//         for(let char in obj){
+//             if(obj[char]===1){
+//                 uni.push(Number(char))
+//             }
+//         }
+//     return uni
+// }
+// console.log(remDup(arr))

@@ -155,16 +155,48 @@ class SinglyLinkedList{
             current = current.next;
         }
     }
+
+    //remove the node which is having the last occurence of the data
+    //input => Head -> 1 -> 2 -> 3 -> 4 -> 5 -> 2 -> 6 -> 2 -> 1
+
+    removeLastOccur(data){
+        let curr = this.head;
+        let lastOccur = null;
+        let prev = null;
+        while(curr){
+            if(curr.data === data){
+                lastOccur = prev;
+            }
+            prev = curr;
+            curr = curr.next;
+        }
+        if(lastOccur){
+            lastOccur.next = lastOccur.next.next;
+        }else if(this.head && this.head.data === data){
+            this.head = this.head.next;
+        }
+    }
+
 }
 
 const list = new SinglyLinkedList();
-list.append(10);
-list.append(20);
-list.append(30);
-list.prepend(5);
-list.prepend(15);
-list.prepend(25);
+list.append(1);
+list.append(2);
+list.append(3);
+list.append(4);
+list.append(5);
+list.append(2);
+list.append(6);
+list.append(2);
+list.append(1);
 list.printList();
+
+console.log('original display')
+list.printList();
+console.log('after removal of last occurance')
+list.removeLastOccur(2)
+list.printList();
+
 
 console.log(list.deleteWithValue(20));
 list.printList();

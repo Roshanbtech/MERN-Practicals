@@ -176,22 +176,27 @@ class BST{
             root.right = this.deleteNode(root.right,root.data);
         }
         return root;
-        }
-
-    
     }
+    
+}
 
 
 // Test the implementation
 const bst = new BST();
 bst.insert(10);
 bst.insert(20);
+bst.insert(2)
 bst.insert(30);
 bst.insert(40);
 bst.insert(50); 
 bst.insert(60);
 bst.insert(25);
 bst.insert(15);
+bst.insert(90)
+bst.insert(2)
+bst.insert(90)
+bst.insert(2)
+bst.insert(10)
 
 // Test search
 console.log('Search 30:', bst.search(30)); // Should return true
@@ -231,7 +236,7 @@ bst.delete(50);
 console.log('After deleting 50:');
 bst.inOrder(); 
 
-console.log('Count of leaf nodes:', bst.countLeafNodes());
+// console.log('Count of leaf nodes:', bst.countLeafNodes());
 
 
 

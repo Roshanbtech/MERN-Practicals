@@ -205,4 +205,36 @@ function subStr(str){
 }
 console.log(subStr('abc'))
 
+// Input: "+91-(99999)_990999000099"
+// Output: "9999909999000099"
+const inputString = '+91-(99999)_990999000099';
+// const onlyNumbers = inputString.match(/\d+/g).join('');
+// console.log(onlyNumbers);
+//or
+let onlyNumbers = '';
+for(let i=0;i<inputString.length;i++){
+    const char = inputString[i];
+    // if (!isNaN(inputString[i]) && inputString[i] !== ' ')
+    if(char >= '0' && char <= '9'){
+        onlyNumbers += char;
+    }
+}
+console.log(onlyNumbers);
+
+//pascal case to snake case
+// Input: "HelloWorld"
+// Output: "hello_world"
+function pascalCaseToSnakeCase(str){
+    // return str.replace(/([A-Z])/g, '_$1').toLowerCase()
+    let result = '';
+    for(let i=0;i<str.length;i++){
+        if(str[i] === str[i].toUpperCase() && i!=0){
+            result+= '_' + str[i].toLowerCase()
+        }else{
+            result+= str[i].toLowerCase()
+        }
+    }
+    return result
+}
+console.log(pascalCaseToSnakeCase("HelloWorldOfRoshanReji"))
 

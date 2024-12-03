@@ -6,6 +6,7 @@ import CounterButton from './counterButton';
 import LifeCycle from './lifecycleinfunc';
 import ExpensiveCalc from './try';
 import HigherOrderComponent from './higherOrderComp';
+import Test from './test'
 
 const App = () => {
    const [count, setCount] = useState(0);
@@ -27,6 +28,7 @@ const App = () => {
         <LifeCycle />
         <ExpensiveCalc />
         <HigherOrderComponent />
+        <Test/>
       </div>
     </div>
   );

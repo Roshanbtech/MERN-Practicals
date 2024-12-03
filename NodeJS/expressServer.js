@@ -101,3 +101,55 @@ app.get('/logout', (req, res) => {
 app.listen(port, () => {
     console.log(`Server started at http://localhost:${port}`);
 });
+
+
+// const express = require('express');
+// const app = express();
+
+// app.use(express.json());
+// app.use((req, res, next) => {
+//   console.log('Request received');
+//   next();
+// });
+
+// app.all('/api/*', (req, res, next) => {
+//   console.log('API request');
+//   next();
+// });
+
+// app.locals.appName = 'My Express App';
+
+// app.set('view engine', 'pug');
+
+// app.get('/', (req, res) => {
+//   res.send('Welcome to ' + app.locals.appName);
+// });
+
+// app.use((err, req, res, next) => {
+//   console.error(err.message);
+//   res.status(500).send('Internal Server Error');
+// });
+
+// const PORT = 3000;
+// app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+// const express = require('express');
+// const app = express();
+
+// app.use((req, res, next) => {
+//   console.log(`Request Method: ${req.method}`);
+// console.log(`Request URL: ${req.url}`);
+//   next();
+// });
+
+// app.get('/', (req, res) => {
+//   res.send('GET Request');
+// });
+
+// app.post('/submit', (req, res) => {
+//   res.send('POST Request');
+// });
+
+// app.listen(3000, () => console.log('Server running on port 3000'));
+
+//$env:PORT = 3000;
