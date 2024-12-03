@@ -107,6 +107,20 @@ class HashTable {
   }
 }
 
+function remDup(str){
+  let seen = new HashTable(20);
+  let unique = '';
+  for(let i=0;i<str.length;i++){
+    let char = str[i].toLowerCase()
+    if(!seen.has(char)){
+      seen.set(char);
+      unique+=str[i]
+    }
+  }
+  return unique
+}
+console.log(remDup('I am Roshan Reji of age 22 and my father is rejichacko...'),'unqiue characters')
+
 // Example usage:
 let hash = new HashTable(10);
 hash.set("name", "Roshan");
