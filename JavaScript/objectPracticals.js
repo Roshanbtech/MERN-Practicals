@@ -126,3 +126,61 @@ for(let key in ob){
   if(ob[key]%2!==0) s += ob[key]
 }
 console.log(s,'odd sum')
+
+//----------removing string values from object 
+
+const obj = {
+  "name":"Roshan",
+  "age":22,
+  "place":"Chengannur",
+  "locality":"Venmony",
+  "pincode": 689509,
+  "country-code": +91,
+  "isFound":true
+}
+
+// const filteredObj = Object.fromEntries(
+//     Object.entries(obj).filter(([key,value])=>typeof value!=='string')
+//     )
+// console.log(filteredObj)
+
+const filtered = {};
+for(let key in obj){
+  if(typeof obj[key] !== 'string'){
+      filtered[key] = obj[key]
+  }
+}
+console.log(filtered)
+
+// getting number values from object
+
+let phone = '+91-(999)-(0009090)';
+
+// 919990009090
+function strMan(str){
+  let res = ''
+  for(let char of str){
+    if(char >='0' && char<="9"){
+      res+=char;
+    }
+  }
+  return res
+}
+console.log(strMan(phone))
+
+// find sum of values where length is greater than 3
+const obj = {a:[5,3,4,8,6],b:[6,7,2],c:[86,42,35,76,15,86],d:[1]}
+
+// 366
+function sum(obj){
+  let sum = 0
+    for(let key in obj){
+      if(obj[key].length>3){
+          sum+= obj[key].reduce((acc,curr)=>{
+            return acc+curr
+          },0)
+      }
+    }
+    return sum
+}
+console.log(sum(obj))
