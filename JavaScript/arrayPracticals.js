@@ -245,3 +245,24 @@ console.log(rev([123,432,763]))
 //     return uni
 // }
 // console.log(remDup(arr))
+
+//find the greatest number from each subarray
+const ab = [[1, 2, 3,10], [2, 3,20, 4], [3,30, 4, 5], [100,5, 6, 7]];
+
+function lar(ab) {
+    let res = [];
+    for (let arr of ab) {
+        let lar = -Infinity;
+        for (let num of arr) {
+            if (num > lar) {
+                lar = num;
+            }
+        }
+        res.push(lar);
+    }
+    return res;
+}
+
+console.log(lar(ab)); // Output: [3, 4, 5, 7]
+
+
