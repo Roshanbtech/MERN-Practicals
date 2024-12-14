@@ -160,6 +160,7 @@ let phone = '+91-(999)-(0009090)';
 function strMan(str){
   let res = ''
   for(let char of str){
+    // if(!isNaN(char) && char!==' ')
     if(char >='0' && char<="9"){
       res+=char;
     }
@@ -184,3 +185,34 @@ function sum(obj){
     return sum
 }
 console.log(sum(obj))
+
+//overall sum of obj
+const x = {a:3,b:4,c:[20,1,34,55]};
+// const sum = Object.values(x).flat().reduce((a,b)=>a+b,0);
+//or
+function sum(x){
+   let sum = 0;
+   for(let key in x){
+    if(typeof x[key] === 'number'){
+      sum+=x[key]
+    } else if(Array.isArray(x[key])){
+      sum+=x[key].reduce((a,b)=>a+b,0)
+    }
+   }
+   return sum
+}
+console.log(sum(x))
+
+const xz = [[1,2,3,4],[2,3,4,5],[2,3,4,5],[8,5,6,7,8]]
+
+function ind(xz){
+    let res = [];
+    xz.forEach((arr, i) => {
+        if (i < arr.length) {
+            res.push(arr[i]);
+        }
+    });
+    return res;
+}
+console.log(ind(xz))
+

@@ -64,94 +64,103 @@ console.log(smallandsecsmall([1, 2, 3, 4, 5, 6]));
 let arr = [1, 0, 20, 0, 0, 3, 0, 40, 0];
 let zero = [];
 let nonZero = [];
-function zeroRemoval(arr){
-    for(let i=0;i<arr.length;i++){
-      if(arr[i]===0){
-        zero.push(arr[i])
-      } else{
-        nonZero.push(arr[i])  
-      }
-   } 
-   return [...zero,...nonZero]
+function zeroRemoval(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === 0) {
+      zero.push(arr[i]);
+    } else {
+      nonZero.push(arr[i]);
+    }
+  }
+  return [...zero, ...nonZero];
 }
-console.log(zeroRemoval(arr))
+console.log(zeroRemoval(arr));
 
 //________find anagram in the list
 
-const words = ['listen','silent','enlist','rat','tar','god','dog'];
-function anagram(word){
-    let letter = word.split('').sort().join('');
-    let anagrams = [];
-    for(let i=0;i<words.length;i++){
-       if(letter === words[i].split('').sort().join('')){
-           anagrams.push(words[i])
-       }
+const words = ["listen", "silent", "enlist", "rat", "tar", "god", "dog"];
+function anagram(word) {
+  let letter = word.split("").sort().join("");
+  let anagrams = [];
+  for (let i = 0; i < words.length; i++) {
+    if (letter === words[i].split("").sort().join("")) {
+      anagrams.push(words[i]);
     }
-    return anagrams
+  }
+  return anagrams;
 }
-console.log(anagram('listen'))
+console.log(anagram("listen"));
 
 //________transform the object values into a single flattened array
 
-const nam = [{a:'tiger',b:'lion'},{c:'cat',d:'dog'}]
-const flatten = nam.map(obj=>Object.values(obj)).flat()
-console.log(flatten)
+const nam = [
+  { a: "tiger", b: "lion" },
+  { c: "cat", d: "dog" },
+];
+const flatten = nam.map((obj) => Object.values(obj)).flat();
+console.log(flatten);
 
 //________calculate cumulative sum with pairs in the array
-const a = [[3,43],[4,4],[3,3]];
+const a = [
+  [3, 43],
+  [4, 4],
+  [3, 3],
+];
 let cumSum = 100;
 
-a.forEach(pair => {
+a.forEach((pair) => {
   const sum = pair[0] + pair[1];
   cumSum -= sum;
   console.log(cumSum);
 });
 
 //____________ count duplicates in an array
-function dupCount(ar){
+function dupCount(ar) {
   let count = 0;
-    for(let i=0;i<ar.length;i++){
-      for(let j=i+1;j<ar.length;j++){
-        if(ar[i]===ar[j]){
-          count++
-          break;
-        }
+  for (let i = 0; i < ar.length; i++) {
+    for (let j = i + 1; j < ar.length; j++) {
+      if (ar[i] === ar[j]) {
+        count++;
+        break;
+      }
     }
+  }
+  return `duplicate count of array is ${count}`;
 }
-return `duplicate count of array is ${count}`
-}
-console.log(dupCount([1,2,3,4,5,1,1,5,5]))
+console.log(dupCount([1, 2, 3, 4, 5, 1, 1, 5, 5]));
 
 //_________summing elements in nested arrays in array
-const ba = [{a: [43, 34, 433, 3]}, {a: [4, -34, 43, 3]}, {a: [4, 34, 43, 3]}, {a: [34, 334, 43, 3]}];
-ba.forEach(obj=>{
-  const sum = obj.a.reduce((a,b)=>a+b,0);
-  console.log(sum)
-})
+const ba = [
+  { a: [43, 34, 433, 3] },
+  { a: [4, -34, 43, 3] },
+  { a: [4, 34, 43, 3] },
+  { a: [34, 334, 43, 3] },
+];
+ba.forEach((obj) => {
+  const sum = obj.a.reduce((a, b) => a + b, 0);
+  console.log(sum);
+});
 
 //________summing properties in arrays of objects
-const ab = [{af:3},{af:4},{af:5},{af:6}];
-const totalSum = ab.reduce((a,b)=>a+b.af,0);
-console.log(totalSum)
+const ab = [{ af: 3 }, { af: 4 }, { af: 5 }, { af: 6 }];
+const totalSum = ab.reduce((a, b) => a + b.af, 0);
+console.log(totalSum);
 
-
-
-var groupAnagrams = function(strs) {
+var groupAnagrams = function (strs) {
   let map = new Map();
-  for(let str of strs){
-      let sortedStr = str.split('').sort().join('');
-      if(!map.has(sortedStr)){
-          map.set(sortedStr,[]);
-      }
-      map.get(sortedStr).push(str);
+  for (let str of strs) {
+    let sortedStr = str.split("").sort().join("");
+    if (!map.has(sortedStr)) {
+      map.set(sortedStr, []);
+    }
+    map.get(sortedStr).push(str);
   }
-   return Array.from(map.values())
-
+  return Array.from(map.values());
 };
 
-console.log(groupAnagrams(["eat","tea","tan","ate","nat","bat"]))
+console.log(groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]));
 
-//find the number of occurances 
+//find the number of occurances
 
 // const arr = [1,1,2,2,3,4,5,6,7,7,8,9];
 
@@ -172,7 +181,7 @@ console.log(groupAnagrams(["eat","tea","tan","ate","nat","bat"]))
 
 // function occur(arr) {
 //     let obj = {};
-    
+
 //     // Count occurrences of each item
 //     for (let item of arr) {
 //         obj[item] = (obj[item] || 0) + 1;
@@ -189,7 +198,7 @@ console.log(groupAnagrams(["eat","tea","tan","ate","nat","bat"]))
 //             maxKey = key;
 //             maxTimes = obj[key];
 //         }
-        
+
 //         if (obj[key] < minTimes) {
 //             minKey = key;
 //             minTimes = obj[key];
@@ -206,21 +215,19 @@ console.log(groupAnagrams(["eat","tea","tan","ate","nat","bat"]))
 
 // console.log(occur(arr));
 
-
 //  [123,432,763]
 // [367,234,321]
 
-function rev(arr){
-  let ne =  arr.reverse()
+function rev(arr) {
+  let ne = arr.reverse();
   const n = [];
-  for(let w of ne){
-     let word =  parseInt( w.toString().split('').reverse().join(''));
-     n.push(word)
+  for (let w of ne) {
+    let word = parseInt(w.toString().split("").reverse().join(""));
+    n.push(word);
   }
-  return n
+  return n;
 }
-console.log(rev([123,432,763]))
-
+console.log(rev([123, 432, 763]));
 
 // const arr = [[1,2,3,8],[33,44,55,1,2],[2,1,6,8]];
 
@@ -247,22 +254,87 @@ console.log(rev([123,432,763]))
 // console.log(remDup(arr))
 
 //find the greatest number from each subarray
-const ab = [[1, 2, 3,10], [2, 3,20, 4], [3,30, 4, 5], [100,5, 6, 7]];
+const ab = [
+  [1, 2, 3, 10],
+  [2, 3, 20, 4],
+  [3, 30, 4, 5],
+  [100, 5, 6, 7],
+];
 
 function lar(ab) {
-    let res = [];
-    for (let arr of ab) {
-        let lar = -Infinity;
-        for (let num of arr) {
-            if (num > lar) {
-                lar = num;
-            }
-        }
-        res.push(lar);
+  let res = [];
+  for (let arr of ab) {
+    let lar = -Infinity;
+    for (let num of arr) {
+      if (num > lar) {
+        lar = num;
+      }
     }
-    return res;
+    res.push(lar);
+  }
+  return res;
 }
 
 console.log(lar(ab)); // Output: [3, 4, 5, 7]
 
+//flatten an array
+const arr = [
+  [10, 20],
+  [5, [15, 25]],
+  [30, [35, [40, 50]]],
+];
 
+function flat(arr) {
+  let res = [];
+  for (let sub of arr) {
+    if (Array.isArray(sub)) {
+      const flattened = flat(sub);
+      for (let val of flattened) {
+        res.push(val);
+      }
+    } else {
+      res.push(sub);
+    }
+  }
+  return res;
+}
+console.log(flat(arr));
+
+
+function flat(arr){
+    let res = [];
+    let count = 0;
+     let stack = [...arr];
+     while(stack.length){
+         let curr = stack.pop();
+         if(Array.isArray(curr)){
+             stack.push(...curr)
+         }else{
+             if(curr>25){
+             res.push(curr);
+             count++
+             }
+         }
+     }
+     return {
+         arr:res.reverse(),
+         count:count}
+}
+console.log(flat(arr))
+
+//find the overall sum from nested object 
+
+const ab = [ [ { af:[12,4,5,66] }, { af:[34,56,77,8] }, { af:[99,9,70] }, { af:[5,6,7] } ] ];
+
+function sum(ab){
+     let sum = 0;
+    for(let arr of ab){
+        for(let sub of arr){
+            for(let key in sub){
+                sum += sub[key].reduce((a,b)=>a+b,0)
+            }
+        }
+    }
+    return sum
+}
+console.log(sum(ab))
