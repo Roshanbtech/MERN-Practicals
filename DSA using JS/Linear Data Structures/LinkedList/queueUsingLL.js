@@ -5,70 +5,87 @@ class Node {
     }
 }
 
-class LinkedListQueue {
+class Queue {
     constructor() {
         this.head = null;
         this.tail = null;
         this.size = 0;
     }
 
-    // Add an element to the queue
+    // Enqueue (Add to the end of the queue)
     enqueue(data) {
         const newNode = new Node(data);
-        if (this.tail) {
+        if (this.tail === null) {
+            this.head = this.tail = newNode;
+        } else {
             this.tail.next = newNode;
-        }
-        this.tail = newNode;
-        if (!this.head) {
-            this.head = newNode;
+            this.tail = newNode;
         }
         this.size++;
     }
 
-    // Remove an element from the front of the queue
+    // Dequeue (Remove from the front of the queue)
     dequeue() {
-        if (!this.head) return null;
-        const node = this.head;
+        if (this.head === null) return null;
+        const data = this.head.data;
         this.head = this.head.next;
-        if (!this.head) {
-            this.tail = null; // If the queue is empty, reset the tail as well
+        if (this.head === null) {
+            this.tail = null;
         }
         this.size--;
-        return node.data;
+        return data;
+    }
+
+    // Display the queue
+    display() {
+        let curr = this.head;
+        let list = '';
+        while (curr) {
+            list += curr.data + '->';
+            curr = curr.next;
+        }
+        console.log(list, 'null');
+    }
+
+    // Find the middle element of the queue
+    findMid() {
+        let fast = this.head;
+        let slow = this.head;
+        while (fast && fast.next) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        console.log(slow.data);
+    }
+
+    // Peek (Get the front element without removing it)
+    peek() {
+        if (this.head === null) return null;
+        return this.head.data;
     }
 
     // Check if the queue is empty
     isEmpty() {
-        return this.size === 0;
+        return this.head === null;
     }
 
-    // Get the front element of the queue
-    peek() {
-        if (!this.head) return null;
-        return this.head.data;
-    }
-
-    // Clear the queue
-    clear() {
-        this.head = null;
-        this.tail = null;
-        this.size = 0;
+    // Get the size of the queue
+    getSize() {
+        return this.size;
     }
 }
 
-// Test the queue
-const queue = new LinkedListQueue();
-
-queue.enqueue(1);
-queue.enqueue(2);
-queue.enqueue(3);
-
-console.log(queue.peek()); // Output: 1
-console.log(queue.dequeue()); // Output: 1
-console.log(queue.peek()); // Output: 2
-console.log(queue.isEmpty()); // Output: false
-console.log(queue.size); // Output: 2
-
-queue.clear();
-console.log(queue.isEmpty()); // Output: true
-console.log(queue.size); // Output: 0
+// Example usage:
+const q = new Queue();
+q.enqueue(1);
+q.enqueue(9);
+q.enqueue(3);
+q.enqueue(0);
+q.enqueue(2);
+q.display();  // Output: 1->9->3->0->2->null
+console.log(q.dequeue());  // Output: 1
+q.display();  // Output: 9->3->0->2->null
+q.findMid();  // Output: 3
+console.log(q.peek());  // Output: 9
+console.log(q.isEmpty());  // Output: false
+console.log(q.getSize());  // Output: 4

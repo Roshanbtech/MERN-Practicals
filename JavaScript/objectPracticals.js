@@ -5,6 +5,39 @@ const pr={
 }
 console.log(pr.name?.zip?.address)//instead of error its undefined
 
+//incase of objects keys are strings/symbols
+const obj = { key1: 'value1', key2: 'value2' };
+obj.key3 = 'value3'; // Add new key-value pair
+console.log(obj.key1); // Access value by key
+
+//incase of map keys can be any type object function primitives
+const map = new Map();
+map.set('key1', 'value1'); // Add key-value pair
+map.set({ key: 'key2' }, 'value2'); // Object as key
+console.log(map.get('key1')); // Access value by key
+
+//incase of set no keyvalue pairs only unique values
+const set = new Set();
+set.add(1);
+set.add(2);
+set.add(1); // Duplicate, will not be added
+console.log(set); // Output: Set { 1, 2 }
+
+//incase of weakmap keys having weak references keys are objects and values any type
+const weakMap = new WeakMap();
+let obj = {};
+weakMap.set(obj, 'value');
+console.log(weakMap.get(obj)); // Access value by key
+obj = null; // Key object eligible for garbage collection
+
+//incase of weakset values having weak references values are objects
+const weakSet = new WeakSet();
+let obj = {};
+weakSet.add(obj);
+console.log(weakSet.has(obj)); // true
+obj = null; // Object eligible for garbage collection
+
+
 //______OBJECT METHODS_______
 //______1.1.Object.entries()___:returns an array of key-value pairs from an object
 const shelt={animal:'LION',shelter:'Den'}

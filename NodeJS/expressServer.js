@@ -16,6 +16,18 @@ app.use(session({
     cookie: { maxAge: 60000, secure: false, httpOnly: true }
 }));
 
+const block = (req, res, next) => {
+    if(req.method==='GET'){
+        res.send('block')
+    }
+    next()
+}
+app.use(block)
+
+app.get('/new',(req,res)=>{
+    res.send('hello')
+})
+
 // Middleware to log parameters
 const logParams = (req, res, next) => {
     const queryParams = req.query; // Query parameters from the URL

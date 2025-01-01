@@ -140,6 +140,15 @@ ba.forEach((obj) => {
   const sum = obj.a.reduce((a, b) => a + b, 0);
   console.log(sum);
 });
+// or
+// let sum = 0; let res = [];
+// for(let obj of ba){
+//     for(key in obj){
+//         sum = obj[key].reduce((a,b)=>a+b,0)
+//         res.push(sum)
+//     }
+// }
+// console.log(res)
 
 //________summing properties in arrays of objects
 const ab = [{ af: 3 }, { af: 4 }, { af: 5 }, { af: 6 }];
@@ -338,3 +347,76 @@ function sum(ab){
     return sum
 }
 console.log(sum(ab))
+
+const ax = [[1,2,3,4],[5,6,7,8],[9,8,7,6]]
+
+function sum(ax){
+    let sum = 0;
+    let res = [];
+    for(let arr of ax){
+        let subsum = 0;
+        for(let sub of arr){
+            subsum += sub
+        }
+        sum+= subsum;
+        res.push(subsum)
+    }
+    return {
+        subsum:res,
+        totsum:sum
+    }
+}
+console.log(sum(ax))
+
+function larSml(ax){
+   let sm = [], lg=[];
+    for(let arr of ax){
+           let lar = -Infinity, sml = Infinity;
+        for(let num of arr){
+            if(num>lar){
+                lar = num
+            }
+            if(num<sml){
+                sml = num
+            }
+        }
+        sm.push(sml);
+        lg.push(lar)
+        
+    }
+    return {
+        small:sm,
+        large:lg
+    }
+}
+console.log(larSml(ax))
+
+function ind(ax){
+    let res=[];
+    ax.forEach((arr,i)=>{
+        if(i<arr.length){
+            res.push(arr[i])
+        }
+    })
+    return res;
+}
+console.log(ind(ax))
+
+// const arr = [[2,3,1],[2,23,4,12],[12,4,12,3],[2,-4,12,42,14,2]]
+
+
+// function ind(arr){
+//     let sum = 0;
+//     let subsum = [];
+//     for(let sub of arr){
+//         let subSum = 0
+//        for(let num of sub){
+//            subSum += num
+//            console.log(subSum)
+//        }
+//        subsum.push(subSum);
+//        sum += subSum
+//     }
+//     return [sum,subsum]
+// }
+// console.log(ind(arr))
